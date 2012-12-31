@@ -3,7 +3,7 @@
   "type": "library",
   "description": "A simple library for dealing with Earth geo coordinate manipulations.",
   "keywords": ["geo", "geolocation", "coordinates", "math", "geodetic"],
-  "homepage": "https://github.com/lootils/lootils-geo",
+  "homepage": "https://github.com/lootils/geo",
   "license": "MIT",
   "authors": [
     {
