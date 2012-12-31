@@ -1,6 +1,8 @@
 # GEO
 This library, part of [Lootils](https://github.com/lootils), deals with earth coordinate system (geodetic) calculations. For example, finding the distance between two coordinate locations, converting coordinates to Degree Minute Second notation or finding the radius of the Earth at a latitude.
 
+[![Build Status](https://travis-ci.org/lootils/geo.png?branch=master)](https://travis-ci.org/lootils/geo)
+
 ## Installation
 The recommended method of installation is with [composer](http://getcomposer.org/). Create a composer file with:
 
