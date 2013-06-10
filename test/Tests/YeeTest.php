@@ -23,7 +23,7 @@ class YeeTest extends \PHPUnit_Framework_TestCase {
     $this->assertTrue(is_float($distance));
 
     // Because these are very long numbers we round to mm.
-    $this->assertEquals(round($distance, 3), 77509.101);
+    $this->assertEquals(77390.178, round($distance, 3));
   }
 
 }

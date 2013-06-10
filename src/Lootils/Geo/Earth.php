@@ -43,7 +43,7 @@ class Earth {
     $radLat = deg2rad($latitude);
 
     $x = cos($radLat) / $this->earthRadiusSemimajor();
-    $y = sin($radLat) / $this->earthRadiusSemimajor();
+    $y = sin($radLat) / $this->earthRadiusSemiminor();
 
     return 1 / (sqrt($x * $x + $y * $y));
   }

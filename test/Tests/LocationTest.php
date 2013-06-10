@@ -50,10 +50,10 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
     $longmin = round($longRange['min'], 5);
     $longmax = round($longRange['max'], 5);
 
-    $this->assertEquals(42.62877, $latmin);
-    $this->assertEquals(42.80843, $latmax);
-    $this->assertEquals(-84.71301, $longmin);
-    $this->assertEquals(-84.22392, $longmax);
+    $this->assertEquals(42.62863, $latmin);
+    $this->assertEquals(42.80857, $latmax);
+    $this->assertEquals(-84.71339, $longmin);
+    $this->assertEquals(-84.22355, $longmax);
   }
 
   public function testExceptions() {
