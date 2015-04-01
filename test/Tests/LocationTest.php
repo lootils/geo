@@ -6,9 +6,6 @@
 
 namespace Lootils\Geo;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'vendor/autoload.php';
-
 use \Lootils\Geo\Location;
 use \Lootils\Geo\Exception;
 
