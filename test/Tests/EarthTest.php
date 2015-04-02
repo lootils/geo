@@ -64,9 +64,9 @@ class EarthTest extends \PHPUnit_Framework_TestCase {
   public function testEarthEccentricitySq() {
     // arrange
     $expected = 0.0066943799901413165;
+    $earthInfo = new Earth;
 
     // act
-    $earthInfo = new Earth;
     $actual = $earthInfo->earthEccentricitySq();
 
     // assert

@@ -86,9 +86,9 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
       'yee' => '\\Lootils\\Geo\\Method\\Yee',
       'vincenty' => '\\Lootils\\Geo\\Method\\Vincenty',
     );
+    $location = new Location(42.7186, -84.468466);
 
     // act
-    $location = new Location(42.7186, -84.468466);
     $actual = $location->distanceMethods();
 
     // assert
@@ -98,10 +98,10 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
   public function testRemoveDistanceMethods() {
     // arrange
     $expected = array();
-
-    // act
     $location = new Location(42.7186, -84.468466);
     $location->removeDistanceMethods();
+
+    // act
     $actual = $location->distanceMethods();
 
     // assert
