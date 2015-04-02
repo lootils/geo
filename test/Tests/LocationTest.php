@@ -79,4 +79,33 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
     }
   }
 
+  public function testDefaultDistanceMethods() {
+    // arrange
+    $expected = array(
+      'default' => '\\Lootils\\Geo\\Method\\Vincenty',
+      'yee' => '\\Lootils\\Geo\\Method\\Yee',
+      'vincenty' => '\\Lootils\\Geo\\Method\\Vincenty',
+    );
+
+    // act
+    $location = new Location(42.7186, -84.468466);
+    $actual = $location->distanceMethods();
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Default distance methods should be as expected');
+  }
+
+  public function testRemoveDistanceMethods() {
+    // arrange
+    $expected = array();
+
+    // act
+    $location = new Location(42.7186, -84.468466);
+    $location->removeDistanceMethods();
+    $actual = $location->distanceMethods();
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Default distance methods should be as expected');
+  }
+
 }
