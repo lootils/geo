@@ -276,14 +276,20 @@ class Location extends Earth implements LocationInterface {
     $diff = asin(sin($angle) / cos($lat));
 
     $minlong = $long - $diff;
+    // @codeCoverageIgnoreStart
+    // TODO figure out if this is reachable or dead code
     if ($minlong < -pi()) {
       $minlong = $minlong + pi() * 2;
     }
+    // @codeCoverageIgnoreEnd
 
     $maxlong = $long + $diff;
+    // @codeCoverageIgnoreStart
+    // TODO figure out if this is reachable or dead code
     if ($maxlong > pi()) {
       $maxlong = $maxlong - pi() * 2;
     }
+    // @codeCoverageIgnoreEnd
 
     return array(
       'min' => rad2deg($minlong),
