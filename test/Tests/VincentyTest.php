@@ -23,4 +23,16 @@ class VincentyTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals(11939773.640, round($google->distance($opera, 'vincenty'), 3));
   }
 
+  public function testSameLocation() {
+    // arrange
+    $expected = 0;
+    $google = new Location(37.422045, -122.084347);  // Google HQ
+
+    // act
+    $actual = $google->distance($google);
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Same location distance should be zero');
+  }
+
 }
