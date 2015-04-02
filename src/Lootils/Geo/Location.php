@@ -183,6 +183,8 @@ class Location extends Earth implements LocationInterface {
    *
    * @return array
    *   An array of floats keyed with x, y, z for the location.
+   *
+   * @codeCoverageIgnore TODO this method is completely untested
    */
   public function cartesian() {
 
@@ -230,20 +232,26 @@ class Location extends Earth implements LocationInterface {
     $rightangle = pi() / 2;
 
     $minlat = $lat - $angle;
+    // @codeCoverageIgnoreStart
+    // TODO figure out how to reach this code
     if ($minlat < -$rightangle) { // wrapped around the south pole
       $overshoot = -$minlat - $rightangle;
       $minlat = -$rightangle + $overshoot;
       if ($minlat > $maxlat) { $maxlat = $minlat; }
       $minlat = -$rightangle;
     }
+    // @codeCoverageIgnoreEnd
 
     $maxlat = $lat + $angle;
+    // @codeCoverageIgnoreStart
+    // TODO figure out how to reach this code
     if ($maxlat > $rightangle) { // wrapped around the north pole
       $overshoot = $maxlat - $rightangle;
       $maxlat = $rightangle - $overshoot;
       if ($maxlat < $minlat) { $minlat = $maxlat; }
       $maxlat = $rightangle;
     }
+    // @codeCoverageIgnoreEnd
 
     return array(
       'min' => rad2deg($minlat),
