@@ -35,6 +35,18 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals("-84 28 6.477600 W", $location->DMSLongitude());
   }
 
+  public function testDMSSouth() {
+    // arrange
+    $location = new Location(-33.856553, 151.214696);   // Sydney Opera House
+
+    // act
+    $actual = $location->DMSLatitude();
+
+    // assert
+    $expected = '-33 51 23.590800 S';
+    $this->assertEquals($expected, $actual);
+  }
+
   public function testRanges() {
 
     $location = new Location(42.7186, -84.468466);
