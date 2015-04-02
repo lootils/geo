@@ -67,7 +67,10 @@ class Vincenty extends Earth implements DistanceInterface {
       $lambda = $L + (1 - $C) * $f * sin($alpha) * ($sigma + $C * $sinSigma * ($cos2SigmaM + $C * $cosSigma * (-1 + 2 * $cos2SigmaM * $cos2SigmaM)));
     }
     if ($iterLimit == 0) {
+      // @codeCoverageIgnoreStart
+      // I can't figure out how to get this far.
       return FALSE; // Oh no... we have a failure.
+      // @codeCoverageIgnoreEnd
     }
 
     $uSq = $cosSqAlpha * ($a * $a - $b * $b) / ($b * $b);
