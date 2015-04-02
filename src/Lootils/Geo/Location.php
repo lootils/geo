@@ -3,7 +3,7 @@
  * @file
  * A Location on the Earth used for calculations.
  *
- * The equations are from Ka-Ping Yee (http://zesty.ca/) and usage permission 
+ * The equations are from Ka-Ping Yee (http://zesty.ca/) and usage permission
  * was given on December 28, 2012 - https://twitter.com/zestyping/status/284747131867254784
  */
 
@@ -79,7 +79,7 @@ class Location extends Earth implements LocationInterface {
 
   /**
    * Get the current latitude.
-   * 
+   *
    * @return float
    *   The latitude for the location.
    */
@@ -92,7 +92,7 @@ class Location extends Earth implements LocationInterface {
    *
    * @param string $format
    *   The format string to use for the response. Defaults to %d %d %F %s
-   * 
+   *
    * @return string
    *   A string with the current latitude in DMS format.
    */
@@ -138,7 +138,7 @@ class Location extends Earth implements LocationInterface {
    *
    * @param string $format
    *   The format string to use for the response. Defaults to %d %d %F %s
-   * 
+   *
    * @return string
    *   A string with the current longitude in DMS format.
    */
