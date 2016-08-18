@@ -19,7 +19,7 @@ class Vincenty extends Earth implements DistanceInterface {
    * see https://en.wikipedia.org/wiki/Vincenty's_formulae. There is also lots
    * of good info at http://www.linz.govt.nz/geodetic/.
    *
-   * Note, Vincenty's forumlae is not know for it's performance. It's more
+   * Note, Vincenty's formulae is not known for its performance. It's more
    * accurate than other methods but takes more processing time to calculate.
    */
   public function distance(LocationInterface $location1, LocationInterface $location2) {
