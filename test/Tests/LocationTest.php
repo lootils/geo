@@ -6,9 +6,6 @@
 
 namespace Lootils\Geo;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'vendor/autoload.php';
-
 use \Lootils\Geo\Location;
 use \Lootils\Geo\Exception;
 
@@ -36,6 +33,18 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
 
     $this->assertEquals("42 43 6.960000 N", $location->DMSLatitude());
     $this->assertEquals("-84 28 6.477600 W", $location->DMSLongitude());
+  }
+
+  public function testDMSSouth() {
+    // arrange
+    $location = new Location(-33.856553, 151.214696);   // Sydney Opera House
+
+    // act
+    $actual = $location->DMSLatitude();
+
+    // assert
+    $expected = '-33 51 23.590800 S';
+    $this->assertEquals($expected, $actual);
   }
 
   public function testRanges() {
@@ -80,6 +89,35 @@ class LocationTest extends \PHPUnit_Framework_TestCase {
     catch (Exception $e) {
       $this->assertEquals('The class associated with the name does not exist.', $e->getMessage());
     }
+  }
+
+  public function testDefaultDistanceMethods() {
+    // arrange
+    $expected = array(
+      'default' => '\\Lootils\\Geo\\Method\\Vincenty',
+      'yee' => '\\Lootils\\Geo\\Method\\Yee',
+      'vincenty' => '\\Lootils\\Geo\\Method\\Vincenty',
+    );
+    $location = new Location(42.7186, -84.468466);
+
+    // act
+    $actual = $location->distanceMethods();
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Default distance methods should be as expected');
+  }
+
+  public function testRemoveDistanceMethods() {
+    // arrange
+    $expected = array();
+    $location = new Location(42.7186, -84.468466);
+    $location->removeDistanceMethods();
+
+    // act
+    $actual = $location->distanceMethods();
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Default distance methods should be as expected');
   }
 
 }

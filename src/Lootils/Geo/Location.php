@@ -3,7 +3,7 @@
  * @file
  * A Location on the Earth used for calculations.
  *
- * The equations are from Ka-Ping Yee (http://zesty.ca/) and usage permission 
+ * The equations are from Ka-Ping Yee (http://zesty.ca/) and usage permission
  * was given on December 28, 2012 - https://twitter.com/zestyping/status/284747131867254784
  */
 
@@ -79,7 +79,7 @@ class Location extends Earth implements LocationInterface {
 
   /**
    * Get the current latitude.
-   * 
+   *
    * @return float
    *   The latitude for the location.
    */
@@ -92,7 +92,7 @@ class Location extends Earth implements LocationInterface {
    *
    * @param string $format
    *   The format string to use for the response. Defaults to %d %d %F %s
-   * 
+   *
    * @return string
    *   A string with the current latitude in DMS format.
    */
@@ -138,7 +138,7 @@ class Location extends Earth implements LocationInterface {
    *
    * @param string $format
    *   The format string to use for the response. Defaults to %d %d %F %s
-   * 
+   *
    * @return string
    *   A string with the current longitude in DMS format.
    */
@@ -183,6 +183,8 @@ class Location extends Earth implements LocationInterface {
    *
    * @return array
    *   An array of floats keyed with x, y, z for the location.
+   *
+   * @codeCoverageIgnore TODO this method is completely untested
    */
   public function cartesian() {
 
@@ -230,20 +232,26 @@ class Location extends Earth implements LocationInterface {
     $rightangle = pi() / 2;
 
     $minlat = $lat - $angle;
+    // @codeCoverageIgnoreStart
+    // TODO figure out how to reach this code
     if ($minlat < -$rightangle) { // wrapped around the south pole
       $overshoot = -$minlat - $rightangle;
       $minlat = -$rightangle + $overshoot;
       if ($minlat > $maxlat) { $maxlat = $minlat; }
       $minlat = -$rightangle;
     }
+    // @codeCoverageIgnoreEnd
 
     $maxlat = $lat + $angle;
+    // @codeCoverageIgnoreStart
+    // TODO figure out how to reach this code
     if ($maxlat > $rightangle) { // wrapped around the north pole
       $overshoot = $maxlat - $rightangle;
       $maxlat = $rightangle - $overshoot;
       if ($maxlat < $minlat) { $minlat = $maxlat; }
       $maxlat = $rightangle;
     }
+    // @codeCoverageIgnoreEnd
 
     return array(
       'min' => rad2deg($minlat),
@@ -276,14 +284,20 @@ class Location extends Earth implements LocationInterface {
     $diff = asin(sin($angle) / cos($lat));
 
     $minlong = $long - $diff;
+    // @codeCoverageIgnoreStart
+    // TODO figure out if this is reachable or dead code
     if ($minlong < -pi()) {
       $minlong = $minlong + pi() * 2;
     }
+    // @codeCoverageIgnoreEnd
 
     $maxlong = $long + $diff;
+    // @codeCoverageIgnoreStart
+    // TODO figure out if this is reachable or dead code
     if ($maxlong > pi()) {
       $maxlong = $maxlong - pi() * 2;
     }
+    // @codeCoverageIgnoreEnd
 
     return array(
       'min' => rad2deg($minlong),

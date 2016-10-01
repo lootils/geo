@@ -6,9 +6,6 @@
 
 namespace Lootils\Geo;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'vendor/autoload.php';
-
 use \Lootils\Geo\Earth;
 
 class EarthTest extends \PHPUnit_Framework_TestCase {
@@ -62,6 +59,18 @@ class EarthTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals(26.99784, round($nm, 5));
     $this->assertEquals(50000, round($earthInfo->convertNauticalMilesToMeters($nm), 5));
 
+  }
+
+  public function testEarthEccentricitySq() {
+    // arrange
+    $expected = 0.0066943799901413165;
+    $earthInfo = new Earth;
+
+    // act
+    $actual = $earthInfo->earthEccentricitySq();
+
+    // assert
+    $this->assertEquals($expected, $actual);
   }
 
 }

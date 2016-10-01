@@ -6,9 +6,6 @@
 
 namespace Lootils\Geo;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'vendor/autoload.php';
-
 use \Lootils\Geo\Location;
 use \Lootils\Geo\Geo;
 
@@ -24,6 +21,18 @@ class VincentyTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals(49087.066, round($google->distance($sf, 'vincenty'), 3));
     $this->assertEquals(8989724.399, round($google->distance($ef, 'vincenty'), 3));
     $this->assertEquals(11939773.640, round($google->distance($opera, 'vincenty'), 3));
+  }
+
+  public function testSameLocation() {
+    // arrange
+    $expected = 0;
+    $google = new Location(37.422045, -122.084347);  // Google HQ
+
+    // act
+    $actual = $google->distance($google);
+
+    // assert
+    $this->assertEquals($expected, $actual, 'Same location distance should be zero');
   }
 
 }
