@@ -6,9 +6,6 @@
 
 namespace Lootils\Geo;
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'vendor/autoload.php';
-
 use \Lootils\Geo\Earth;
 
 class EarthTest extends \PHPUnit_Framework_TestCase {

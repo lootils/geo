@@ -1,6 +1,6 @@
 language: php
 
-php: 
+php:
   - 5.3
   - 5.4
 
@@ -8,4 +8,4 @@ before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install
 
-script: phpunit test/Tests
+script: ./vendor/bin/phpunit
